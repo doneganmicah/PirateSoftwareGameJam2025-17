@@ -14,6 +14,12 @@ config/name="PirateSoftwareGameJam2025-17"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://Scripts/Includes/Global.gd"
+Signals="*res://Scripts/Includes/Signals.gd"
+Scenes="*res://Scripts/Includes/Scenes.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
