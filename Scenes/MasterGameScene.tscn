@@ -7,6 +7,8 @@ script = ExtResource("1_m6qa8")
 
 [node name="2DScene" type="Node2D" parent="."]
 
+[node name="Node2D" type="Node2D" parent="2DScene"]
+
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
