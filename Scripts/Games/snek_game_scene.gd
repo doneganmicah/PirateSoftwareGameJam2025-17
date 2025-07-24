@@ -9,7 +9,8 @@ const MAX_SNEK_SIZE   = 128
 const MAX_SNEK_SCORE  = 25
 const SNEK_GRID_TILE  = Vector2i(0, 0)
 const SNEK_BODY_TILE  = Vector2i(1, 0)
-const SNEK_APPLE_TILE = Vector2i(2,0)
+const SNEK_APPLE_TILE = Vector2i(2, 0)
+const SNEK_CRASH_TILE = Vector2i(0, 1)
 const SNEK_GRID_X = 33
 const SNEK_GRID_Y = 17
 
@@ -53,12 +54,14 @@ func _physics_process(delta: float) -> void:
 		
 		# Check if the desired location is valid
 		if(tile_map.get_cell_atlas_coords(target_pos) == SNEK_BODY_TILE): # Ran into self
+			tile_map.set_cell(snek_body[0], 0, SNEK_CRASH_TILE)
 			timer.stop()
 			await get_tree().create_timer(2).timeout
 			reset_game()
 			return
 		elif(target_pos.x > SNEK_GRID_X or target_pos.x < 0 or target_pos.y > SNEK_GRID_Y or target_pos.y < 0): # Ran into wall
 			# end game
+			tile_map.set_cell(snek_body[0], 0, SNEK_CRASH_TILE)
 			timer.stop()
 			await get_tree().create_timer(2).timeout
 			reset_game()
