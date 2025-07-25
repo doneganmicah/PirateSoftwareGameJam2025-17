@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://baf8krlj2t8r0"]
+[gd_scene load_steps=3 format=3 uid="uid://di3iuqjbkt7iq"]
 
 [ext_resource type="Texture2D" uid="uid://dxeimaaci1bim" path="res://icon.svg" id="1_2b2s2"]
+[ext_resource type="Texture2D" uid="uid://c1solvvlplhhd" path="res://Assets/computer_bg.png" id="2_sis75"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -23,6 +24,15 @@ alignment = 2
 [node name="Desktop" type="Control" parent="VerticalScreenSpaceLayout"]
 custom_minimum_size = Vector2(1024, 710)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VerticalScreenSpaceLayout/Desktop"]
+layout_mode = 0
+offset_left = -165.0
+offset_top = -32.0
+offset_right = 1256.0
+offset_bottom = 767.0
+texture = ExtResource("2_sis75")
+expand_mode = 1
 
 [node name="TestApp" type="Control" parent="VerticalScreenSpaceLayout/Desktop"]
 anchors_preset = 0
@@ -53,6 +63,35 @@ text = "Super Cool Browser"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="TestApp2" type="Control" parent="VerticalScreenSpaceLayout/Desktop"]
+anchors_preset = 0
+offset_left = 289.0
+offset_top = 230.0
+offset_right = 329.0
+offset_bottom = 270.0
+
+[node name="Icon" type="Sprite2D" parent="VerticalScreenSpaceLayout/Desktop/TestApp2"]
+scale = Vector2(0.421115, 0.421115)
+texture = ExtResource("1_2b2s2")
+
+[node name="Button" type="Button" parent="VerticalScreenSpaceLayout/Desktop/TestApp2/Icon"]
+z_index = -1
+offset_left = -61.7409
+offset_top = -61.7409
+offset_right = -53.7409
+offset_bottom = -53.7409
+scale = Vector2(15.3569, 15.4778)
+
+[node name="Label" type="Label" parent="VerticalScreenSpaceLayout/Desktop/TestApp2"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 24.0
+offset_right = 51.0
+offset_bottom = 125.0
+text = "Super Cool Browser"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TaskBar" type="ColorRect" parent="VerticalScreenSpaceLayout"]
 custom_minimum_size = Vector2(1024, 50)
 layout_mode = 2
@@ -70,8 +109,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/StartButton"]
 layout_mode = 2
-offset_left = 13.0
-offset_right = 21.0
+offset_right = 50.0
 offset_bottom = 50.0
 
 [node name="StartButton" type="TextureRect" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/StartButton"]
@@ -86,10 +124,39 @@ layout_mode = 2
 alignment = 1
 
 [node name="Tab1" type="TextureRect" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Tabs"]
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(240, 45)
 layout_mode = 2
 texture = ExtResource("1_2b2s2")
 expand_mode = 3
+
+[node name="Label" type="Label" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Tabs/Tab1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -11.5
+offset_right = 62.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Computer game"
+
+[node name="TextureRect" type="TextureRect" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Tabs/Tab1"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -12.5
+offset_right = 45.0
+offset_bottom = 12.5
+grow_vertical = 2
+texture = ExtResource("1_2b2s2")
+expand_mode = 5
 
 [node name="Tab3" type="TextureRect" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Tabs"]
 custom_minimum_size = Vector2(240, 0)
