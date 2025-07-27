@@ -20,7 +20,13 @@ Globals="*res://Scripts/Includes/Global.gd"
 Signals="*res://Scripts/Includes/Signals.gd"
 Scenes="*res://Scripts/Includes/Scenes.gd"
 
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=768
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0.498039, 0.498039, 1)
