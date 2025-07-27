@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmifh42eupm2x"
-path="res://.godot/imported/PXL_20240103_140529833.jpg-59c03b4ac58eee1d5e8eb939db29707d.ctex"
+uid="uid://b600p5vpwntoo"
+path="res://.godot/imported/captcha_tile_prompt8.png-9435dbd0db5164bc47341cab3c1f47fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Captcha/PXL_20240103_140529833.jpg"
-dest_files=["res://.godot/imported/PXL_20240103_140529833.jpg-59c03b4ac58eee1d5e8eb939db29707d.ctex"]
+source_file="res://Assets/Captcha/captcha_tile_prompt8.png"
+dest_files=["res://.godot/imported/captcha_tile_prompt8.png-9435dbd0db5164bc47341cab3c1f47fe.ctex"]
 
 [params]
 

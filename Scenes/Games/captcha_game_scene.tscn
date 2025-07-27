@@ -1,17 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://caig83smo64up"]
+[gd_scene load_steps=11 format=4 uid="uid://caig83smo64up"]
 
-[ext_resource type="Shader" uid="uid://i6l5vbv47xvp" path="res://Assets/Shaders/captcha_grid.gdshader" id="1_ao8bd"]
-[ext_resource type="TileSet" uid="uid://cpvrbkmsdrw1e" path="res://Assets/Captcha/captcha_game_tileset.tres" id="1_v8doy"]
-[ext_resource type="Texture2D" uid="uid://dmifh42eupm2x" path="res://Assets/Captcha/PXL_20240103_140529833.jpg" id="1_y51ru"]
+[ext_resource type="Texture2D" uid="uid://c0yl0dyua3lba" path="res://Assets/Captcha/captcha_tile_prompt9.png" id="2_tb7c2"]
+[ext_resource type="Script" uid="uid://dc1klgbq7oogp" path="res://Scripts/Games/captcha_game_scene.gd" id="4_jl71o"]
 [ext_resource type="Texture2D" uid="uid://dc45oiscduuel" path="res://Assets/Captcha/captcha_tile_grid.png" id="4_tb7c2"]
+[ext_resource type="Texture2D" uid="uid://d0cece7u307sp" path="res://Assets/Icons/icon_arrow.png" id="5_fq8mh"]
 [ext_resource type="Texture2D" uid="uid://2par1r31ecvl" path="res://Assets/Captcha/captcha_tile_grid_selected.png" id="5_jl71o"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_558bu"]
-shader = ExtResource("1_ao8bd")
-shader_parameter/border_width = 1.0
-shader_parameter/border_color = Color(0.7, 0.7, 0.7, 1.7)
-shader_parameter/selected = false
-shader_parameter/dim_factor = 0.4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ao8bd"]
+bg_color = Color(0.0400655, 0.326115, 0.686779, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fq8mh"]
 texture = ExtResource("4_tb7c2")
@@ -76,8 +72,17 @@ tile_size = Vector2i(50, 50)
 sources/0 = SubResource("TileSetAtlasSource_fq8mh")
 sources/1 = SubResource("TileSetAtlasSource_bokku")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bokku"]
+bg_color = Color(0.101961, 0.454902, 0.917647, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+shadow_size = 1
+
 [node name="CaptchaGameScene" type="Control"]
-custom_minimum_size = Vector2(275, 350)
+custom_minimum_size = Vector2(275, 375)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,6 +93,7 @@ offset_right = -514.0
 offset_bottom = -378.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_jl71o")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -110,23 +116,59 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 color = Color(0.101961, 0.454902, 0.917647, 1)
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 258.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 20
+text = "Select The Squares That Contain:"
+
+[node name="Prompt" type="Label" parent="VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 24.0
+offset_right = 263.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_ao8bd")
+text = "a traffic light"
+autowrap_mode = 3
+
+[node name="Grid" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Grid"]
+layout_mode = 0
 offset_left = 12.5
 offset_right = 262.5
 offset_bottom = 250.0
-texture = ExtResource("1_y51ru")
+texture = ExtResource("2_tb7c2")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="VBoxContainer/Control"]
-visible = false
-material = SubResource("ShaderMaterial_558bu")
+[node name="SelectionGrid" type="TileMapLayer" parent="VBoxContainer/Grid"]
 position = Vector2(12.5, 0)
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAQAAAABAAAAAAABAAAAAAABAAEAAAABAAEAAAABAAIAAAABAAIAAAABAAMAAAABAAMAAAABAAQAAAABAAQAAAACAAAAAAACAAAAAAACAAEAAAACAAEAAAACAAIAAAACAAIAAAACAAMAAAACAAMAAAACAAQAAAACAAQAAAADAAAAAAADAAAAAAADAAEAAAADAAEAAAADAAIAAAADAAIAAAADAAMAAAADAAMAAAADAAQAAAADAAQAAAAEAAAAAAAEAAAAAAAEAAEAAAAEAAEAAAAEAAIAAAAEAAIAAAAEAAMAAAAEAAMAAAAEAAQAAAAEAAQAAAA=")
-tile_set = ExtResource("1_v8doy")
-
-[node name="TileMapLayer2" type="TileMapLayer" parent="VBoxContainer/Control"]
-position = Vector2(12.5, 0)
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAAAAEAAAAAAAEAAAABAAEAAAABAAEAAAACAAEAAQABAAIAAAADAAEAAQABAAIAAAAEAAEAAAAEAAEAAAAAAAIAAAAAAAIAAAABAAIAAAABAAIAAAACAAIAAQABAAIAAAADAAIAAQABAAIAAAAEAAIAAAAEAAIAAAAEAAMAAAAEAAMAAAADAAMAAQABAAIAAAACAAMAAQABAAIAAAABAAMAAAABAAMAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAQAAAABAAQAAAABAAQAAAACAAQAAAACAAQAAAADAAQAAAADAAQAAAAEAAQAAAAEAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAAAAEAAAAAAAEAAAABAAEAAAABAAEAAAACAAEAAAACAAEAAAADAAEAAAADAAEAAAAEAAEAAAAEAAEAAAAAAAIAAAAAAAIAAAABAAIAAAABAAIAAAACAAIAAAACAAIAAAADAAIAAAADAAIAAAAEAAIAAAAEAAIAAAAEAAMAAAAEAAMAAAADAAMAAAADAAMAAAACAAMAAAACAAMAAAABAAMAAAABAAMAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAQAAAABAAQAAAABAAQAAAACAAQAAAACAAQAAAADAAQAAAADAAQAAAAEAAQAAAAEAAQAAAA=")
 tile_set = SubResource("TileSet_cgl8p")
+
+[node name="Button" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_right = -13.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_bokku")
+text = "Next"
+icon = ExtResource("5_fq8mh")
+
+[connection signal="pressed" from="VBoxContainer/Button/Button" to="." method="_on_button_pressed"]
