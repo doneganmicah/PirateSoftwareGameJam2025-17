@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgyif3xp5i2w"]
+[gd_scene load_steps=7 format=3 uid="uid://bgyif3xp5i2w"]
 
 [ext_resource type="Texture2D" uid="uid://dxeimaaci1bim" path="res://icon.svg" id="1_2b2s2"]
 [ext_resource type="Texture2D" uid="uid://c1solvvlplhhd" path="res://Assets/computer_bg.png" id="2_sis75"]
+[ext_resource type="Texture2D" uid="uid://siqipbv7crep" path="res://Assets/widows logo.png" id="3_l0lqi"]
+[ext_resource type="Texture2D" uid="uid://cuqdevbfnvoo6" path="res://Assets/hamburger icon.png" id="4_2g35h"]
+[ext_resource type="Texture2D" uid="uid://ccg73fx68hmt1" path="res://Assets/gear icon.png" id="5_l5pk2"]
+[ext_resource type="Texture2D" uid="uid://hwvl42pmkbld" path="res://Assets/sound icon.png" id="6_ewlja"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -116,7 +120,7 @@ offset_bottom = 50.0
 layout_mode = 0
 offset_right = 50.0
 offset_bottom = 50.0
-texture = ExtResource("1_2b2s2")
+texture = ExtResource("3_l0lqi")
 expand_mode = 5
 
 [node name="Tabs" type="HBoxContainer" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems"]
@@ -187,13 +191,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -22.5
+offset_left = -162.0
+offset_top = -22.0
 offset_right = 60.0
-offset_bottom = 22.5
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.811765, 0.8, 0.811765, 1)
+
+[node name="Hamburger" type="TextureRect" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Options/Clock"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = 15.0
+offset_right = -70.0
+offset_bottom = 38.0
+texture = ExtResource("4_2g35h")
+expand_mode = 1
+
+[node name="Settings Gear" type="TextureRect" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Options/Clock"]
+layout_mode = 0
+offset_left = -59.0
+offset_top = 14.0
+offset_right = -35.0
+offset_bottom = 38.0
+texture = ExtResource("5_l5pk2")
+expand_mode = 1
+
+[node name="Sound" type="TextureRect" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Options/Clock"]
+layout_mode = 2
+offset_left = -23.0
+offset_top = 13.0
+offset_right = 10.0
+offset_bottom = 38.0
+texture = ExtResource("6_ewlja")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Options/Clock"]
 layout_mode = 1
