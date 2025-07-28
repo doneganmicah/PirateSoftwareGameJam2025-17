@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b71voam8o1qjn"]
+[gd_scene load_steps=6 format=3 uid="uid://b71voam8o1qjn"]
 
-[ext_resource type="Texture2D" uid="uid://dxeimaaci1bim" path="res://icon.svg" id="2_kksav"]
+[ext_resource type="FontFile" uid="uid://cmaohy40d3ak6" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_104k1"]
+[ext_resource type="Texture2D" uid="uid://qbhdpd8eooml" path="res://Assets/minimize button.png" id="2_7s2b6"]
+[ext_resource type="Texture2D" uid="uid://bjk4fvoexsf8b" path="res://Assets/fullscreen button.png" id="3_mhcci"]
+[ext_resource type="Texture2D" uid="uid://c36nnxh63ju7n" path="res://Assets/exit button.png" id="4_wj7jm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2nprw"]
-font_size = 36
+font = ExtResource("1_104k1")
+font_size = 70
 
 [node name="Popup" type="Control"]
 layout_mode = 3
@@ -61,7 +65,7 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture = ExtResource("2_kksav")
+texture = ExtResource("2_7s2b6")
 expand_mode = 1
 stretch_mode = 4
 
@@ -70,7 +74,7 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture = ExtResource("2_kksav")
+texture = ExtResource("3_mhcci")
 expand_mode = 1
 stretch_mode = 4
 
@@ -79,6 +83,6 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture = ExtResource("2_kksav")
+texture = ExtResource("4_wj7jm")
 expand_mode = 1
 stretch_mode = 4
