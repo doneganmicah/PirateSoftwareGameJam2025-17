@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3iwvq5e00clj"
-path="res://.godot/imported/captcha_tile_prompt5.png-e7f3c317656b09037e52b2248d1d359b.ctex"
+uid="uid://cfkxcy6n5yjet"
+path="res://.godot/imported/captcha_tile_is_robot.png-1df8d7848d061852943b9f377ff192c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Captcha/captcha_tile_prompt5.png"
-dest_files=["res://.godot/imported/captcha_tile_prompt5.png-e7f3c317656b09037e52b2248d1d359b.ctex"]
+source_file="res://Assets/Captcha/captcha_tile_is_robot.png"
+dest_files=["res://.godot/imported/captcha_tile_is_robot.png-1df8d7848d061852943b9f377ff192c4.ctex"]
 
 [params]
 
