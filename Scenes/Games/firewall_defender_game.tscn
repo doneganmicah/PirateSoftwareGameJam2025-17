@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cko5vccfnxlhe"]
+
+[ext_resource type="Script" uid="uid://crjhymxj3rgro" path="res://Scripts/Firewall/firewall_defender_game.gd" id="1_dktxc"]
+[ext_resource type="Texture2D" uid="uid://ccg73fx68hmt1" path="res://Assets/gear icon.png" id="2_20kfq"]
+
+[node name="FirewallDefenderGame" type="Node2D"]
+script = ExtResource("1_dktxc")
+
+[node name="FireSpawner" type="Timer" parent="."]
+
+[node name="GearIcon" type="Sprite2D" parent="."]
+position = Vector2(506, 363)
+scale = Vector2(0.131579, 0.131579)
+texture = ExtResource("2_20kfq")
+
+[connection signal="timeout" from="FireSpawner" to="." method="_on_fire_spawner_timeout"]
