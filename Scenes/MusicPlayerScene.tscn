@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://bboqdhktuiv62"]
+
+[ext_resource type="Script" uid="uid://bpq6aey3st770" path="res://Scripts/music_player_scene.gd" id="1_dd5sg"]
+[ext_resource type="Theme" uid="uid://cahmo35ttnxav" path="res://Assets/Themes/MusicPlayerButton.tres" id="1_prqqn"]
+[ext_resource type="FontVariation" uid="uid://nta1eguxj08s" path="res://Assets/Fonts/jersey15_font.tres" id="2_v7wbj"]
+
+[sub_resource type="Gradient" id="Gradient_dd5sg"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.496894, 1)
+colors = PackedColorArray(0.152941, 0.156863, 0.239216, 1, 0.223529, 0.227451, 0.372549, 1, 0.152941, 0.156863, 0.239216, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7wbj"]
+gradient = SubResource("Gradient_dd5sg")
+
+[node name="MusicPlayerScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dd5sg")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 75.0
+texture = SubResource("GradientTexture2D_v7wbj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 54.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="Title" type="Label" parent="Background/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0.690196, 0, 1)
+theme_override_fonts/font = ExtResource("2_v7wbj")
+text = "The One & Only Best Game OS (Main)"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="Album" type="Label" parent="Background/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 250.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0.690196, 0, 1)
+theme_override_fonts/font = ExtResource("2_v7wbj")
+text = "from 'Best Game OS'"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="Author" type="Label" parent="Background/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 32.0
+offset_right = 249.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0.690196, 0, 1)
+theme_override_fonts/font = ExtResource("2_v7wbj")
+text = "by 'TungstWn'"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Previous" type="Button" parent="Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_prqqn")
+text = "Prev"
+
+[node name="Play" type="Button" parent="Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_prqqn")
+text = " Play "
+
+[node name="Pause" type="Button" parent="Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_prqqn")
+text = "Pause"
+
+[node name="Next" type="Button" parent="Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_prqqn")
+text = "Next"
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 119.0
+offset_right = 175.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_v7wbj")
+theme_override_font_sizes/font_size = 19
+text = "WINVOLT"
+
+[connection signal="pressed" from="Background/VBoxContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/HBoxContainer/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]
