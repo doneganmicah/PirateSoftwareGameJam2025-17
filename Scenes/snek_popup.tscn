@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctvjt5h38lsnb"]
+
+[ext_resource type="PackedScene" uid="uid://b71voam8o1qjn" path="res://Scenes/popup_base.tscn" id="1_v2kr5"]
+[ext_resource type="PackedScene" uid="uid://m7lloa4vqhqs" path="res://Scenes/Games/SnekGameScene.tscn" id="2_j0l5e"]
+
+[node name="SnekPopup" type="Control"]
+layout_mode = 3
+anchor_right = 0.423
+anchor_bottom = 0.47
+offset_right = -0.152008
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Popup" parent="." instance=ExtResource("1_v2kr5")]
+layout_mode = 1
+
+[node name="Label" parent="Popup/VBoxContainer/HBoxContainer" index="0"]
+text = "SNEK.EXE"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Popup/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="SnekGameScene" parent="Popup/VBoxContainer/AspectRatioContainer" instance=ExtResource("2_j0l5e")]
+layout_mode = 2
+
+[editable path="Popup"]
