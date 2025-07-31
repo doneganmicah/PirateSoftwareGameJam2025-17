@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bdccg2ey1kpic"]
+
+[ext_resource type="StyleBox" uid="uid://bv0dgcpttnpb7" path="res://Assets/Themes/tab_style_box.tres" id="1_iurp6"]
+[ext_resource type="FontVariation" uid="uid://nta1eguxj08s" path="res://Assets/Fonts/jersey15_font.tres" id="2_3g4n1"]
+
+[resource]
+default_font = ExtResource("2_3g4n1")
+Label/font_sizes/font_size = 23
+Panel/styles/panel = ExtResource("1_iurp6")

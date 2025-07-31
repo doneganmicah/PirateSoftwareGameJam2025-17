@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://uiq2htdqngig"]
+[gd_scene load_steps=3 format=3 uid="uid://uiq2htdqngig"]
 
 [ext_resource type="Script" uid="uid://qoyo3ae50q0e" path="res://Scripts/master_game_scene.gd" id="1_m6qa8"]
+[ext_resource type="PackedScene" uid="uid://bgyif3xp5i2w" path="res://Scenes/DesktopScene.tscn" id="2_k3wih"]
 
 [node name="MasterGameScene" type="Node"]
 script = ExtResource("1_m6qa8")
+
+[node name="Desktop" parent="." instance=ExtResource("2_k3wih")]
 
 [node name="2DScene" type="Node2D" parent="."]
 
