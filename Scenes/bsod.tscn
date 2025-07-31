@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgidbjf5pd7qu"]
+
+[ext_resource type="FontFile" uid="uid://cmaohy40d3ak6" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_sfgi7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqufo"]
+font = ExtResource("1_sfgi7")
+font_size = 40
+
+[node name="BSOD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.670588, 1)
+
+[node name="Label1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.058
+anchor_right = 1.0
+anchor_bottom = 0.133
+offset_left = -0.200001
+offset_top = 0.456001
+offset_right = -151.0
+offset_bottom = -0.143997
+text = "A problem has occurred."
+label_settings = SubResource("LabelSettings_pqufo")
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.145
+anchor_right = 1.0
+anchor_bottom = 0.256
+offset_left = -0.200001
+offset_right = -151.0
+offset_bottom = -4.08801
+text = "Whatever you just did should not have been done by a human or sentient being of any classification."
+label_settings = SubResource("LabelSettings_pqufo")
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.291
+anchor_right = 1.0
+anchor_bottom = 0.402
+offset_left = -0.200001
+offset_right = -151.0
+offset_bottom = -98.552
+text = "Please remove your hands from the keyboard and step slowly away from the magic box."
+label_settings = SubResource("LabelSettings_pqufo")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.431
+anchor_right = 1.0
+anchor_bottom = 0.599
+offset_left = -0.200001
+offset_right = -151.0
+offset_bottom = -227.576
+text = "In the event that the Mesopotamian Wind Spirits contained within your device attempt to free themselves, please call your local museum for further assistance."
+label_settings = SubResource("LabelSettings_pqufo")
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.774
+anchor_right = 1.0
+anchor_bottom = 0.942
+offset_left = -0.200001
+offset_right = -151.0
+offset_bottom = -356.6
+text = "Technical Information:
+
+*** STOP: (0x0000004C, 0x0000006F, 0x0000004C)"
+label_settings = SubResource("LabelSettings_pqufo")
+autowrap_mode = 2
