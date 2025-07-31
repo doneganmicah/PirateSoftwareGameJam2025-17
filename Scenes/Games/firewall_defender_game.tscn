@@ -1,0 +1,257 @@
+[gd_scene load_steps=8 format=3 uid="uid://cko5vccfnxlhe"]
+
+[ext_resource type="Script" uid="uid://crjhymxj3rgro" path="res://Scripts/Firewall/firewall_defender_game.gd" id="1_dktxc"]
+[ext_resource type="Shader" uid="uid://d1o86eic4fneq" path="res://Assets/Materials/LoadingBar.gdshader" id="2_20kfq"]
+[ext_resource type="Curve" uid="uid://cculnemjbqiwr" path="res://Scripts/Firewall/fire_strength.tres" id="2_gjp57"]
+[ext_resource type="Curve" uid="uid://cv55kk0m353ii" path="res://Scripts/Firewall/fire_chance.tres" id="3_esf4h"]
+[ext_resource type="FontFile" uid="uid://cmaohy40d3ak6" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="3_ybh1p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybh1p"]
+shader = ExtResource("2_20kfq")
+shader_parameter/loading_color = Color(0.301961, 0.980392, 0, 1)
+shader_parameter/background_color = Color(0.310617, 0.310617, 0.310617, 1)
+shader_parameter/progress = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjp57"]
+size = Vector2(258, 49)
+
+[node name="FirewallDefenderGame" type="Node2D"]
+script = ExtResource("1_dktxc")
+fire_strength = ExtResource("2_gjp57")
+fire_chance = ExtResource("3_esf4h")
+
+[node name="FireSpawner" type="Timer" parent="."]
+
+[node name="Rebooting" type="Control" parent="."]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 362.0
+offset_top = 300.0
+offset_right = 662.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Background" type="ColorRect" parent="Rebooting"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.921569, 0.921569, 0.921569, 1)
+
+[node name="LoadingBar" type="ColorRect" parent="Rebooting"]
+material = SubResource("ShaderMaterial_ybh1p")
+custom_minimum_size = Vector2(250, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 8.5
+offset_right = 125.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.67069, 0.67069, 0.67069, 1)
+
+[node name="Label" type="Label" parent="Rebooting"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 6.0
+offset_right = 67.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybh1p")
+theme_override_font_sizes/font_size = 22
+text = "Rebooting Firewall . . ."
+
+[node name="Label" type="Label" parent="Rebooting/Label"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 19.0
+offset_right = 103.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybh1p")
+theme_override_font_sizes/font_size = 17
+text = "Click Fires for Manual Supression"
+
+[node name="Label2" type="Label" parent="Rebooting"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 60.0
+offset_right = 88.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybh1p")
+theme_override_font_sizes/font_size = 12
+text = "(To avoid permenant damange don't let fire touch this menu)"
+
+[node name="NeedReboot" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 362.0
+offset_top = 300.0
+offset_right = 662.0
+offset_bottom = 375.0
+size_flags_horizontal = 4
+
+[node name="Background" type="ColorRect" parent="NeedReboot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.921569, 0.921569, 0.921569, 1)
+
+[node name="Label" type="Label" parent="NeedReboot"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 6.0
+offset_right = 67.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybh1p")
+theme_override_font_sizes/font_size = 22
+text = "Application Blocked By Firewall"
+
+[node name="Label" type="Label" parent="NeedReboot/Label"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 19.0
+offset_right = 103.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybh1p")
+theme_override_font_sizes/font_size = 17
+text = "To Continue, Please Reconfigure Firewall"
+
+[node name="Button" type="Button" parent="NeedReboot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -31.0
+offset_right = 48.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 13
+text = "Reconfigure"
+
+[node name="RebootComplete" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 362.0
+offset_top = 300.0
+offset_right = 662.0
+offset_bottom = 375.0
+size_flags_horizontal = 4
+
+[node name="Background" type="ColorRect" parent="RebootComplete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.921569, 0.921569, 0.921569, 1)
+
+[node name="Label" type="Label" parent="RebootComplete"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 6.0
+offset_right = 67.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybh1p")
+theme_override_font_sizes/font_size = 22
+text = "Reboot Complete!!!"
+
+[node name="Label" type="Label" parent="RebootComplete/Label"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 19.0
+offset_right = 103.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybh1p")
+theme_override_font_sizes/font_size = 17
+text = "Application Allowed By Firewall"
+
+[node name="Button" type="Button" parent="RebootComplete"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -31.0
+offset_right = 48.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 13
+text = "Close"
+
+[node name="EventTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(512, 339.5)
+shape = SubResource("RectangleShape2D_gjp57")
+
+[connection signal="timeout" from="FireSpawner" to="." method="_on_fire_spawner_timeout"]
+[connection signal="pressed" from="NeedReboot/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="RebootComplete/Button" to="." method="_on_close_button_pressed"]
+[connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_fire_entered"]
