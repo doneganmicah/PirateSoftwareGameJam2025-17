@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://m7lloa4vqhqs"]
+[gd_scene load_steps=9 format=4 uid="uid://m7lloa4vqhqs"]
 
 [ext_resource type="Script" uid="uid://cytvlndnjf01" path="res://Scripts/Games/snek_game_scene.gd" id="1_urs18"]
 [ext_resource type="Texture2D" uid="uid://7wp6cnbk2tsr" path="res://Assets/TileSheets/SnekTileSheet.png" id="1_vipi0"]
+[ext_resource type="Theme" uid="uid://bdccg2ey1kpic" path="res://Assets/Themes/tabs.tres" id="2_v8ctq"]
+[ext_resource type="Shader" uid="uid://d1o86eic4fneq" path="res://Assets/Materials/LoadingBar.gdshader" id="4_pxbpw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urs18"]
 texture = ExtResource("1_vipi0")
@@ -21,6 +23,25 @@ texture_region_size = Vector2i(11, 11)
 tile_size = Vector2i(11, 11)
 sources/0 = SubResource("TileSetAtlasSource_urs18")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljq0t"]
+shader = ExtResource("4_pxbpw")
+shader_parameter/loading_color = Color(0.301961, 0.980392, 0, 1)
+shader_parameter/background_color = Color(0.310617, 0.310617, 0.310617, 1)
+shader_parameter/progress = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8ctq"]
+bg_color = Color(0.641291, 0.623356, 0.641318, 1)
+border_width_left = 1
+border_width_top = 1
+border_color = Color(0.91664, 0.91664, 0.91664, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.180392)
+shadow_size = 1
+shadow_offset = Vector2(0.75, 0.75)
+
 [node name="SnekGameScene" type="Control"]
 custom_minimum_size = Vector2(400, 250)
 layout_mode = 3
@@ -32,12 +53,12 @@ offset_bottom = 269.0
 script = ExtResource("1_urs18")
 snek_speed = 0.15
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="Panel" parent="."]
 custom_minimum_size = Vector2(400, 250)
 layout_mode = 0
 offset_right = 400.0
-offset_bottom = 250.0
-color = Color(0.752941, 0.752941, 0.752941, 1)
+offset_bottom = 259.0
+theme = ExtResource("2_v8ctq")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(375, 198)
@@ -59,13 +80,88 @@ tile_set = SubResource("TileSet_ffpvu")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_left = 174.0
-offset_top = 218.0
-offset_right = 214.0
-offset_bottom = 241.0
+[node name="LoadingBar" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ljq0t")
+custom_minimum_size = Vector2(250, 15)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -15.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.67069, 0.67069, 0.67069, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 20.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "0/25"
+theme_override_font_sizes/font_size = 17
+text = "Defragmentation of Disk Underway (Exiting May Corrupt Drive)"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.5
+offset_top = -44.0
+offset_right = 145.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_v8ctq")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -26.0
+offset_right = 121.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Completed Defragmentation!"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 5.0
+offset_right = 76.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_v8ctq")
+text = "Close"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

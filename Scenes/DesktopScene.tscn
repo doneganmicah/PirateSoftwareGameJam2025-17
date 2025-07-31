@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgyif3xp5i2w"]
+[gd_scene load_steps=12 format=3 uid="uid://bgyif3xp5i2w"]
 
 [ext_resource type="Texture2D" uid="uid://dxeimaaci1bim" path="res://icon.svg" id="1_2b2s2"]
 [ext_resource type="Texture2D" uid="uid://c1solvvlplhhd" path="res://Assets/computer_bg.png" id="2_sis75"]
@@ -10,7 +10,6 @@
 [ext_resource type="Theme" uid="uid://bdccg2ey1kpic" path="res://Assets/Themes/tabs.tres" id="6_2naa8"]
 [ext_resource type="Texture2D" uid="uid://hwvl42pmkbld" path="res://Assets/sound icon.png" id="6_ewlja"]
 [ext_resource type="StyleBox" uid="uid://bv0dgcpttnpb7" path="res://Assets/Themes/tab_style_box.tres" id="7_gds1w"]
-[ext_resource type="PackedScene" uid="uid://ctvjt5h38lsnb" path="res://Scenes/snek_popup.tscn" id="11_gds1w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2naa8"]
 bg_color = Color(0.742732, 0.727742, 0.742742, 1)
@@ -155,6 +154,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Tab1" type="Panel" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Tabs"]
+visible = false
 custom_minimum_size = Vector2(240, 45)
 layout_mode = 2
 size_flags_vertical = 4
@@ -193,6 +193,7 @@ texture = ExtResource("1_2b2s2")
 expand_mode = 5
 
 [node name="Tab3" type="Panel" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Tabs"]
+visible = false
 custom_minimum_size = Vector2(240, 45)
 layout_mode = 2
 size_flags_vertical = 4
@@ -228,6 +229,7 @@ texture = ExtResource("1_2b2s2")
 expand_mode = 5
 
 [node name="Tab2" type="Panel" parent="VerticalScreenSpaceLayout/TaskBar/TaskBarItems/Tabs"]
+visible = false
 custom_minimum_size = Vector2(240, 45)
 layout_mode = 2
 size_flags_vertical = 4
@@ -337,10 +339,3 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2naa8")
 text = "4:20 PM"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="SnekPopup" parent="VerticalScreenSpaceLayout/TaskBar/Options/Clock" instance=ExtResource("11_gds1w")]
-layout_mode = 1
-offset_left = -649.0
-offset_top = -435.0
-offset_right = -649.152
-offset_bottom = -434.96

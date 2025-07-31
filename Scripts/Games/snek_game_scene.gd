@@ -2,11 +2,12 @@ extends Control
 
 @onready var timer: Timer = $Timer
 @onready var tile_map: TileMapLayer = $ColorRect2/TileMapLayer
-@onready var score: Label = $Score
 @export_range(0.01, 5.0, 0.01) var snek_speed : float
+@onready var loading_bar: ColorRect = $LoadingBar
+@onready var panel: Panel = $Panel
 
 const MAX_SNEK_SIZE   = 128
-const MAX_SNEK_SCORE  = 25
+const MAX_SNEK_SCORE  = 15.0
 const SNEK_GRID_TILE  = Vector2i(0, 0)
 const SNEK_BODY_TILE  = Vector2i(1, 0)
 const SNEK_APPLE_TILE = Vector2i(2, 0)
@@ -78,8 +79,9 @@ func _physics_process(delta: float) -> void:
 		snek_body[0] = target_pos
 		
 		draw_snek_game()
-		score.text = str(snek_score) + "/" + str(MAX_SNEK_SCORE)
-		if(snek_score == MAX_SNEK_SCORE):
+		var shader_mat = loading_bar.material as ShaderMaterial
+		shader_mat.set_shader_parameter("progress", lerp_map(snek_score, 0.0, MAX_SNEK_SCORE, 0.0, 1.0))
+		if(snek_score >= MAX_SNEK_SCORE):
 			timer.stop()
 			win_game()
 	
@@ -95,8 +97,7 @@ func draw_snek_game() -> void:
 	tile_map.set_cell(apple_pos, 0, SNEK_APPLE_TILE)
 
 func win_game() -> void:
-	# Make a callback function to call back to game manager script or signal
-	pass
+	panel.visible = true
 
 func reset_game() -> void:
 	snek_body.resize(MAX_SNEK_SIZE)
@@ -120,6 +121,12 @@ func generate_apple() -> void:
 			apple_pos = Vector2i(x, y)
 			found_apple = true
 		
+func lerp_map(value: float, min_x: float, max_x: float, map_min: float, map_max: float) -> float:
+	var t = (value - min_x) / (max_x - min_x)
+	return lerp(map_min, map_max, t)
 
 func _on_timer_timeout() -> void:
 	_flag_timer = true
+
+func _on_button_pressed() -> void:
+	Signals.SNEK_COMPLETE.emit()

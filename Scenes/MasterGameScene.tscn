@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://uiq2htdqngig"]
+[gd_scene load_steps=5 format=3 uid="uid://uiq2htdqngig"]
 
 [ext_resource type="Script" uid="uid://qoyo3ae50q0e" path="res://Scripts/master_game_scene.gd" id="1_m6qa8"]
 [ext_resource type="PackedScene" uid="uid://bgyif3xp5i2w" path="res://Scenes/DesktopScene.tscn" id="2_k3wih"]
+[ext_resource type="PackedScene" uid="uid://cix3wywupxbcm" path="res://Scenes/BrowserScene.tscn" id="3_ogco2"]
+[ext_resource type="PackedScene" uid="uid://ctvjt5h38lsnb" path="res://Scenes/snek_popup.tscn" id="4_ir8ji"]
 
 [node name="MasterGameScene" type="Node"]
 script = ExtResource("1_m6qa8")
@@ -14,8 +16,21 @@ script = ExtResource("1_m6qa8")
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 0.935
+offset_bottom = -0.0800781
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrowserScene" parent="GUI" instance=ExtResource("3_ogco2")]
+layout_mode = 1
+offset_bottom = 0.0
+
+[node name="SnekPopup" parent="GUI" instance=ExtResource("4_ir8ji")]
+layout_mode = 1
+offset_left = 296.0
+offset_top = 169.0
+offset_right = 295.848
+offset_bottom = 169.04
 
 [node name="GlobalHelpers" type="Node" parent="."]

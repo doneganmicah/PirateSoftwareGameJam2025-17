@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://cix3wywupxbcm"]
+
+[ext_resource type="Texture2D" uid="uid://dfgwmtyr8d63b" path="res://Assets/Nitch io page.png" id="1_c7icc"]
+[ext_resource type="Script" uid="uid://b7dgci4r4h234" path="res://Scripts/browser_scene.gd" id="1_pls8e"]
+[ext_resource type="PackedScene" uid="uid://b71voam8o1qjn" path="res://Scenes/popup_base.tscn" id="1_yqpgp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pls8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ys68n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7icc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqpgp"]
+
+[node name="BrowserScene" type="Control"]
+custom_minimum_size = Vector2(1024, 718)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pls8e")
+
+[node name="Popup" parent="." instance=ExtResource("1_yqpgp")]
+layout_mode = 1
+
+[node name="Label" parent="Popup/VBoxContainer/HBoxContainer" index="0"]
+text = "Nitch.io"
+
+[node name="Button" type="Button" parent="Popup/VBoxContainer/HBoxContainer/TextureRect" index="0"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 50.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pls8e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ys68n")
+
+[node name="Button" type="Button" parent="Popup/VBoxContainer/HBoxContainer/TextureRect2" index="0"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 50.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pls8e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ys68n")
+
+[node name="Button" type="Button" parent="Popup/VBoxContainer/HBoxContainer/TextureRect3" index="0"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 50.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pls8e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ys68n")
+
+[node name="NitchIoPage" type="TextureRect" parent="Popup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 76.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c7icc")
+expand_mode = 1
+
+[node name="RunButton" type="Button" parent="Popup/NitchIoPage"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 235.0
+offset_right = 574.0
+offset_bottom = 270.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7icc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqpgp")
+
+[node name="Extra" type="Button" parent="Popup/NitchIoPage"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 1.0
+offset_right = 152.0
+offset_bottom = 44.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7icc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqpgp")
+
+[node name="Extra2" type="Button" parent="Popup/NitchIoPage"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 1.0
+offset_right = 251.0
+offset_bottom = 44.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7icc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqpgp")
+
+[node name="Extra3" type="Button" parent="Popup/NitchIoPage"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 1.0
+offset_right = 333.0
+offset_bottom = 43.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7icc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqpgp")
+
+[node name="Extra4" type="Button" parent="Popup/NitchIoPage"]
+layout_mode = 0
+offset_left = 911.0
+offset_top = 1.0
+offset_right = 951.0
+offset_bottom = 44.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7icc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqpgp")
+
+[node name="Extra5" type="Button" parent="Popup/NitchIoPage"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 1.0
+offset_right = 992.0
+offset_bottom = 44.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7icc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yqpgp")
+
+[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/TextureRect/Button" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/TextureRect2/Button" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/HBoxContainer/TextureRect3/Button" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Popup/NitchIoPage/RunButton" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="Popup/NitchIoPage/Extra" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Popup/NitchIoPage/Extra2" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Popup/NitchIoPage/Extra3" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Popup/NitchIoPage/Extra4" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Popup/NitchIoPage/Extra5" to="." method="_on_extra_pressed"]
+
+[editable path="Popup"]
